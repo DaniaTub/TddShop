@@ -1,0 +1,10 @@
+<project>
+
+<target name="run"  depends= "compile">
+</target>
+
+<target name="compile" >
+	<javac srcdir="./src"  destdir="stagging1"></javac>
+</target>
+
+</project>

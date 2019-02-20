@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project name="trytobuildcart"  >
 	
 	<target name="compile">
+	<property name="src.java.dir" location="C:\Program Files\Java\jdk1.8.0_201"/>
+<property name="src.test.dir" location="C:\Users\Google Tech\eclipse-workspace\FinalHw"/>
+<property name="result.dir" location="./target"/>
+<property name="result.javaclasses.dir" location="${result.dir}/classes"/>
+<property name="result.testclasses.dir" location="${result.dir}/testclasses"/>
+<property name="result.jar.file" location="./MyProduct.jar"/>
+	
 	<mkdir dir ="${result.javaclasses.dir}"/>
-	<javac srcdir="${FinalHw.src}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false">
+	<javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false">
 	</javac>
 	</target>
 	
+	<path id="NecessaryLibraries">
+        <pathelement location="C:\Users\Google Tech\Desktop\jarfiles\hamcrest-core-1.3.jar"/>
+        <!--matcher-->
+        <pathelement location="C:\Users\Google Tech\Desktop\jarfiles\junit-4.12.jar"/>
+        <!--<pathelement location="C:\eclipse\plugins\org.jacoco.ant-0.8.3.jar"/>-->
+    </path>
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
  <target name="compile-testcases" depends="compile">
         <mkdir dir="${result.testclasses.dir}"/>
- 	<property name="shoppinHw.src" location="src" />
-        <javac srcdir="${FinalHw.src}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false">
+ 	<property name="Final" location="src" />
+        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false">
        <classpath>
         	                
            <path refid="NecessaryLibraries"/>
        <pathelement location="${result.javaclasses.dir}"/>
+       
   </classpath>
 	</javac>
  	 </target>
